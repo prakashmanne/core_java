@@ -10,5 +10,12 @@ public class ArrayExample1 {
     System.out.println(Arrays.toString(arr));
     Arrays.sort(arr);
     System.out.println(Arrays.toString(arr));
+    int sum = 0;
+    double avg = 0;
+    for(int ele:arr){
+        sum += ele;
+    }
+    avg = sum /(double)arr.length;
+    System.out.println("The sum of elements is :"+sum+" and average is : "+avg);
   }
 }
