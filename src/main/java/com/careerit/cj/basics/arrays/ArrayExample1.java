@@ -29,7 +29,7 @@ public class ArrayExample1 {
     System.out.println("Min :" + min + " and Max :" + max);
     System.out.println("Total elements :"+arr.length);
     for (int i = arr.length - 1; i >= 0; i--) {
-      System.out.println(arr[i]);
+      System.out.println("arr["+(i+1)+"]"+arr[i]);
     }
   }
 }
