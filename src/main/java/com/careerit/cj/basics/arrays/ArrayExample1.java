@@ -8,5 +8,7 @@ public class ArrayExample1 {
       System.out.println(arr[i]);
     }
     System.out.println(Arrays.toString(arr));
+    Arrays.sort(arr);
+    System.out.println(Arrays.toString(arr));
   }
 }
