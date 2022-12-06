@@ -17,15 +17,16 @@ public class ArrayExample1 {
     min = max = arr[0];
     for (int ele : arr) {
       sum += ele;
-      if(max < ele){
-          max = ele;
+      if (max < ele) {
+        max = ele;
       }
-      if(min > ele){
-          min = ele;
+      if (min > ele) {
+        min = ele;
       }
     }
     avg = sum / (double) arr.length;
     System.out.println("The sum of elements is :" + sum + " and average is : " + avg);
-    System.out.println("Min :"+min+" and Max :"+max);
+    System.out.println("Min :" + min + " and Max :" + max);
+    System.out.println("Total elements :"+arr.length);
   }
 }
