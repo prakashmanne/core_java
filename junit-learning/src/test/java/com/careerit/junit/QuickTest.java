@@ -33,21 +33,5 @@ public class QuickTest {
     Assertions.assertArrayEquals(expected, actual);
 
   }
-  @Test
-  void searchElement() {
-    NumberOperations obj = new NumberOperations();
-    int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    assertAll("search",
-        ()->assertEquals(true,obj.search(arr,5)),
-        ()->assertEquals(false,obj.search(arr,11)),
-        ()->assertEquals(true,obj.search(arr,1))
-        );
-  }
-  @Test
-  void searchElementWithoutKey() {
-    NumberOperations obj = new NumberOperations();
-    int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    boolean actual = obj.search(arr,11);
-    Assertions.assertEquals(false, actual);
-  }
+
 }

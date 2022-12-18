@@ -38,5 +38,11 @@ public class NumberOperations {
     }
     return false;
   }
+  public int divide(int a,int b){
+      if(b==0){
+        throw new ArithmeticException("Value of b can't zero");
+      }
+      return a / b;
+  }
 
 }
