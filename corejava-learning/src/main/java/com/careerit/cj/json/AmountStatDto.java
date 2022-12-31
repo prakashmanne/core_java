@@ -1,5 +1,12 @@
 package com.careerit.cj.json;
 
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class AmountStatDto {
 
     private int count;

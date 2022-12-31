@@ -1,12 +1,13 @@
 package com.careerit.cj.json;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerStatServiceImpl implements  PlayerStatService{
+public class PlayerStatServiceImpl implements PlayerStatService {
 
   private List<Player> players;
 
-  public PlayerStatServiceImpl(){
+  public PlayerStatServiceImpl() {
     FileReadUtil fileReadUtil = new FileReadUtil();
     players = fileReadUtil.readJsonData().getPlayers();
   }
@@ -23,7 +24,36 @@ public class PlayerStatServiceImpl implements  PlayerStatService{
 
   @Override
   public AmountStatDto getStatsOfTeam(String team) {
-    return null;
+    List<Player> list = new ArrayList<>();
+    for (Player player : players) {
+      if (player.getTeam().equalsIgnoreCase(team)) {
+        list.add(player);
+      }
+    }
+    double totalAmount = 0;
+    double maxAmount = 0;
+    double minAmount = 0;
+    double avgAmount = 0;
+    int count = list.size();
+    maxAmount = minAmount = list.get(0).getAmount();
+    for (Player p : list) {
+      double amount = p.getAmount();
+      if (p.getAmount() > maxAmount) {
+        maxAmount = amount;
+      }
+      if (p.getAmount() < minAmount) {
+        minAmount = amount;
+      }
+      totalAmount += amount;
+    }
+    avgAmount = totalAmount / count;
+    AmountStatDto obj = AmountStatDto.builder()
+        .avgAmount(avgAmount)
+        .minAmount(minAmount)
+        .maxAmount(maxAmount)
+        .count(count)
+        .build();
+    return obj;
   }
 
   @Override
@@ -38,12 +68,12 @@ public class PlayerStatServiceImpl implements  PlayerStatService{
 
   @Override
   public List<String> getCountryNames() {
-        List<String> countryNameList = new ArrayList<>();
-        for(Player p:players){
-            if(!countryNameList.contains(p.getCountry())){
-              countryNameList.add(p.getCountry());
-            }
-        }
-        return countryNameList;
+    List<String> countryNameList = new ArrayList<>();
+    for (Player p : players) {
+      if (!countryNameList.contains(p.getCountry())) {
+        countryNameList.add(p.getCountry());
+      }
+    }
+    return countryNameList;
   }
 }
